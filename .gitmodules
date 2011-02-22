@@ -13,3 +13,6 @@
 [submodule "vim/bundle/taglist"]
 	path = vim/bundle/taglist
 	url = https://github.com/vim-scripts/taglist.vim.git
+[submodule "vim/bundle/buftabs"]
+	path = vim/bundle/buftabs
+	url = https://github.com/vim-scripts/buftabs.git
