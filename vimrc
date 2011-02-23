@@ -40,6 +40,7 @@ map <leader>s :vspl<CR>
 "map <leader>! :<up>!
 nmap  <leader>n :NERDTreeToggle<CR>
 nmap  <leader>t :call MyTlistToggle()<CR>
+nmap <leader>f :CommandT<CR>
 
 "put the arrow keys to good use
 map <left> :bp<CR>
