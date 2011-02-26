@@ -7,7 +7,7 @@ call pathogen#runtime_append_all_bundles()
 highlight Normal ctermbg=Black ctermfg=White
 colorscheme xoria256
 
-"some sensible defaults
+"General settings
 syntax on
 filetype plugin on
 set nocompatible
@@ -19,6 +19,8 @@ set number
 set autoindent
 set smartindent
 set hidden
+set wildmode=longest,list,full
+set wildmenu
 
 "Navigate up and down a long line
 nnoremap j gj
@@ -31,6 +33,7 @@ imap <c-space> <c-x><c-o>
 "map the leader to an easy key
 let g:mapleader = ","
 
+
 "leader commands
 nmap <leader>w :w<CR>
 nmap <leader>e :e 
@@ -41,6 +44,7 @@ map <leader>s :vspl<CR>
 nmap  <leader>n :NERDTreeToggle<CR>
 nmap  <leader>t :call MyTlistToggle()<CR>
 nmap <leader>f :CommandT<CR>
+nmap <leader>F :CommandT 
 
 "put the arrow keys to good use
 map <left> :bp<CR>
@@ -58,6 +62,8 @@ nmap <C-l> <C-W>l
 "fast editing of the .vimrc
 map <leader>v :e! ~/.vimrc<CR>
 map <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:echo 'vimrc reloaded'<CR>
+
+"NerdCommenter Hotkey
 
 "Buftabs settings
 set laststatus=2
