@@ -7,6 +7,11 @@ call pathogen#runtime_append_all_bundles()
 highlight Normal ctermbg=Black ctermfg=White
 colorscheme xoria256
 
+"get some gvim real estate back
+set guioptions-=m
+set guioptions-=T
+set guifont=Monospace\ 8
+
 "General settings
 syntax on
 filetype plugin on
