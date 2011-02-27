@@ -26,6 +26,13 @@ set smartindent
 set hidden
 set wildmode=longest,list,full
 set wildmenu
+set scrolloff=4
+
+"syntax check on write
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_auto_loc_list=1
 
 "Navigate up and down a long line
 nnoremap j gj
@@ -37,7 +44,6 @@ imap <c-space> <c-x><c-o>
 
 "map the leader to an easy key
 let g:mapleader = ","
-
 
 "leader commands
 nmap <leader>w :w<CR>
@@ -70,9 +76,6 @@ map <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:echo 'vimrc reloaded'<CR>
 
 "NerdCommenter Hotkey
 
-"Buftabs settings
-set laststatus=2
-let g:buftabs_in_statusline=1
 
 "NerdTree Settings
 let NERDTreeShowBookmarks = 1
