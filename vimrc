@@ -5,12 +5,14 @@ call pathogen#runtime_append_all_bundles()
 
 "colours
 highlight Normal ctermbg=Black ctermfg=White
-colorscheme xoria256
+colorscheme mustang
 
 "get some gvim real estate back
+set guioptions+=LlRrb
+set guioptions-=LlRrb
 set guioptions-=m
 set guioptions-=T
-set guifont=Monospace\ 8
+set guifont=Monospace\ 9
 
 "General settings
 syntax on
@@ -27,6 +29,11 @@ set hidden
 set wildmode=longest,list,full
 set wildmenu
 set scrolloff=4
+set incsearch
+set autoread
+set completeopt=longest,menuone
+set tw=80
+set wrap
 
 "syntax check on write
 set statusline+=%#warningmsg#
@@ -49,13 +56,14 @@ let g:mapleader = ","
 nmap <leader>w :w<CR>
 nmap <leader>e :e 
 "quick split view on a file
-map <leader>s :vspl<CR> 
+map <leader>s :vspl<CR><C-w>w 
 "repeat last command with a !
 "map <leader>! :<up>!
 nmap  <leader>n :NERDTreeToggle<CR>
 nmap  <leader>t :call MyTlistToggle()<CR>
 nmap <leader>f :CommandT<CR>
 nmap <leader>F :CommandT 
+nmap <leader>g :!git 
 
 "put the arrow keys to good use
 map <left> :bp<CR>
@@ -72,7 +80,8 @@ nmap <C-l> <C-W>l
 
 "fast editing of the .vimrc
 map <leader>v :e! ~/.vimrc<CR>
-map <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:echo 'vimrc reloaded'<CR>
+map <leader>V :source ~/.vimrc<CR>
+":filetype detect<CR>:echo 'vimrc reloaded'
 
 "NerdCommenter Hotkey
 
