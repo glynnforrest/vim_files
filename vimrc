@@ -44,8 +44,8 @@ set ruler
 set autoindent
 set smartindent
 set expandtab
-set shiftwidth=3
-set tabstop=3
+set shiftwidth=4
+set tabstop=4
 set smarttab
 set lbr
 set tw=80
@@ -74,6 +74,10 @@ set stal=1
 "Remove gvim scrollbars
 set guioptions-=LlRrb
 set guioptions=m
+
+"Disable alt menu keys so they can be used for mappings
+"Use <F10> to open the menu
+set winaltkeys=no
 
 "Font
 set guifont=Monospace\ 10
@@ -146,11 +150,14 @@ map <C-l> <C-W>l
 map <C-,> <C-W>
 map <C-.> <C-W>
 
+"Quick change directory
+map <leader>cd :cd 
+
 "Change directory to current buffer
-nmap <leader>d :cd %:p:h<CR>
+map <leader>d :cd %:p:h<CR>
 
 "Move up a directory
-nmap <leader>b :cd ..<CR>
+map <leader>b :cd ..<CR>
 
 """""""""""
 "Statusline
