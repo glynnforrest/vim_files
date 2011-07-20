@@ -4,98 +4,171 @@
 "Author: Glynn Forrest
 "me@glynnforrest.com
 "
-"load plugins before anything else
+"Load plugins before anything else
 filetype off
 call pathogen#helptags()
 call pathogen#runtime_append_all_bundles()
 
-"colours
-highlight Normal ctermbg=Black ctermfg=White
-colorscheme mustang
-
-"get some gvim real estate back
-"set guioptions+=LlRrb
-"set guioptions-=LlRrb
-set guioptions=mT
-set guifont=Monospace\ 9
-
 """""""""""""""""
 "General settings
 """""""""""""""""
+
+"Enable highlighting
 syntax on
-filetype on
+
+"Enable filetypes
+filetype plugin on
+filetype indent on
+
+"We're not using vi
 set nocompatible
+
+"Don't leave backups everywhere
 set nobackup
 set nowritebackup
 set noswapfile
+
+"Searching wraps around end of file and travels
 set wrapscan
+set incsearch
+
+"Search smartly
+set smartcase
+set ignorecase
+
+"Line numbers and show where we are
 set number
+set ruler
+
+"Indenting properly
 set autoindent
 set smartindent
-set hidden
-set wildmode=longest,list,full
-set wildmenu
-set scrolloff=4
-set incsearch
-set autoread
-set completeopt=longest,menuone
+set expandtab
+set shiftwidth=3
+set tabstop=3
+set smarttab
+set lbr
 set tw=80
 set wrap
+
+"Change buffers without saving
+set hidden
+
+"Better filename completion
+set wildmode=longest,list,full
+set wildmenu
+set completeopt=longest,menuone
+
+"See the cursor when moving vertically
+set scrolloff=4
+
+"Don't redraw while executing macros
+set nolazyredraw
+
+"Refresh automatically
+set autoread
+
+"Show tabline only when there are more than 1
+set stal=1
+
+"Remove gvim scrollbars
+set guioptions-=LlRrb
+set guioptions=m
+
+"Font
+set guifont=Monospace\ 10
+
+"Colours
+highlight Normal ctermbg=Black ctermfg=White
+colorscheme mustang
 
 """""""""""""""""""""
 "Normal mode mappings
 """""""""""""""""""""
+"Map the leader to an easy key
+let g:mapleader = ","
+
+"Hotkeys to edit and reload .vimrc
+map <leader>v :e! ~/.vimrc<CR>
+map <leader>V :source ~/.vimrc<CR>
+
+"Quick file write
+map <leader>w :w<CR>
+
+"Quick file open
+map <leader>e :e 
+
+"Quick split
+map <leader>s :vspl<CR><C-w>w 
+
+"Copy and paste from the system clipboard
+map <leader>p "+p
+map <leader>y "+y
+
+"Other leader commands
+map <leader>n :NERDTreeToggle<CR>
+map <leader>t :call MyTlistToggle()<CR>
+map <leader>f :CommandT<CR>
+map <leader>F :CommandT 
+map <leader>g :!git 
+
+"Make new lines with return
+map <CR> o<ESC>
+map <S-CR> O<ESC>
+
 "Navigate up and down a long line
 nnoremap j gj
 nnoremap k gk
 
-"map the leader to an easy key
-let g:mapleader = ","
+"Scroll a bit faster
+nnoremap <C-e> 3<C-e>
+nnoremap <C-y> 3<C-y>
 
-"leader commands
-nmap <leader>w :w<CR>
-nmap <leader>e :e 
-nmap <leader>s :vspl<CR><C-w>w 
-nmap  <leader>n :NERDTreeToggle<CR>
-nmap  <leader>t :call MyTlistToggle()<CR>
-nmap <leader>f :CommandT<CR>
-nmap <leader>F :CommandT 
-nmap <leader>g :!git 
-
-"make new lines with return
-nmap <CR> o<ESC>
-nmap <S-CR> O<ESC>
-
-"left and right to switch buffers
+"Buffer management
+map <leader>B :enew<CR>
 map <left> :bp<CR>
 map <right> :bn<CR>
+"Use ctrl so it's not accidental
+map <C-down> :bd<CR>
+map <C-up> :q<CR>
 
-"up and down to delete buffers and windows
-"use ctrl so it's not accidental
-map <c-down> :bd<CR>
-map <c-up> :q<CR>
+"Tab management
+nmap <leader><space> :tabf %<CR>
+nmap <leader>x :tabclose<CR>
+nmap <C-left> :tabprev<CR>
+nmap <C-right> :tabnext<CR>
 
-"easier windows controls
-nmap <C-j> <C-W>j
-nmap <C-k> <C-W>k
-nmap <C-h> <C-W>h
-nmap <C-l> <C-W>l
+"Window management
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
+map <C-,> <C-W>
+map <C-.> <C-W>
 
-"fast editing of the .vimrc
-map <leader>v :e! ~/.vimrc<CR>
-map <leader>V :source ~/.vimrc<CR>
+"Change directory to current buffer
+nmap <leader>d :cd %:p:h<CR>
 
+"Move up a directory
+nmap <leader>b :cd ..<CR>
+
+"""""""""""
+"Statusline
+"""""""""""
+set laststatus=2
+set statusline=\ %F%m%r\ %y\ %l/%L\ %{getcwd()}
 
 """""""""""""""""""""
 "Insert mode mappings
 """""""""""""""""""""
-"space completion
+"Spacebar completion
 imap <c-space> <c-x><c-o>
 
-
-
-
-
+"Cool abbreviations
+iab xdate <c-r>=strftime("%d/%H/%Y %H:%M:%S")<CR>
+iab xname <c-r>='Glynn Forrest'<CR>
+iab xemail <c-r>='me@glynnforrest.com'<CR>
+iab xpwd <c-r>=getcwd()<CR>
 
 """"""""""""""""
 "Plugin settings
@@ -131,6 +204,12 @@ let Tlist_Use_Right_Window = 1
 let Tlist_WinWidth = 40 
 "Don't show variables in php
 let tlist_php_settings = 'php;c:class;d:constant;f:function' 
+
+""""""""""
+"Command-T
+""""""""""
+let g:CommandTMaxHeight = 15
+
 
 """"""""""
 "Syntastic
