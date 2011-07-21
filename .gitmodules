@@ -38,3 +38,7 @@
 	path = vim/bundle/zencoding
 	url = https://github.com/mattn/zencoding-vim.git
     ignore = dirty
+[submodule "vim/bundle/xmledit"]
+	path = vim/bundle/xmledit
+	url = https://github.com/sukima/xmledit.git
+    ignore = dirty
