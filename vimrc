@@ -40,6 +40,9 @@ set ignorecase
 set number
 set ruler
 
+"Show our half typed commands
+set showcmd
+
 "Indenting properly
 set autoindent
 set smartindent
