@@ -104,6 +104,7 @@ map <leader>e :e
 
 "Quick split
 map <leader>s :vspl<CR><C-w>w 
+map <leader>S :vspl 
 
 "Copy and paste from the system clipboard
 map <leader>p "+p
