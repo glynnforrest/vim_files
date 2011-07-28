@@ -46,9 +46,10 @@ set showcmd
 "Indenting properly
 set autoindent
 set smartindent
-set expandtab
 set shiftwidth=4
+set softtabstop=4
 set tabstop=4
+set noexpandtab
 set smarttab
 set lbr
 set tw=80
@@ -83,7 +84,7 @@ set guioptions=m
 set winaltkeys=no
 
 "Font
-set guifont=Monospace\ 10
+set guifont=Monospace\ 9
 
 "Colours
 highlight Normal ctermbg=Black ctermfg=White
