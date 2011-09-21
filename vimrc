@@ -84,11 +84,11 @@ set guioptions=m
 set winaltkeys=no
 
 "Font
-set guifont=Monospace\ 9
+set guifont=Consolas\ 10
 
 "Colours
 highlight Normal ctermbg=Black ctermfg=White
-colorscheme mustang
+colorscheme molokai
 
 """""""""""""""""""""
 "Normal mode mappings
@@ -111,7 +111,9 @@ map <leader>s :vspl<CR><C-w>w
 map <leader>S :vspl 
 
 "Copy and paste from the system clipboard
+map <leader>P "+P
 map <leader>p "+p
+map <leader>Y "+Y
 map <leader>y "+y
 
 "Other leader commands
@@ -141,6 +143,10 @@ map <right> :bn<CR>
 map <C-down> :bd<CR>
 map <C-up> :q<CR>
 
+"Add shift for !
+map <C-S-down> :bd!<CR>
+map <C-S-up> :q!<CR>
+
 "Tab management
 nmap <leader><space> :tabf %<CR>
 nmap <leader>x :tabclose<CR>
@@ -152,8 +158,8 @@ map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
-map <C-,> <C-W>
-map <C-.> <C-W>
+map <C-,> <C-W><
+map <C-.> <C-W>>
 
 "Quick change directory
 map <leader>cd :cd 
@@ -168,7 +174,7 @@ map <leader>b :cd ..<CR>
 "Statusline
 """""""""""
 set laststatus=2
-set statusline=\ %F%m%r\ %y\ %l/%L\ %{getcwd()}
+set statusline=\ %F%m%r\ %y\ [%{&ff}]\ %l/%L\ %{getcwd()}
 
 """""""""""""""""""""
 "Insert mode mappings
@@ -221,6 +227,7 @@ let tlist_php_settings = 'php;c:class;d:constant;f:function'
 "Command-T
 """"""""""
 let g:CommandTMaxHeight = 15
+map <F5> :CommandTFlush<CR>
 
 
 """"""""""
@@ -235,3 +242,8 @@ let g:syntastic_auto_loc_list=1
 "Gundo
 """"""
 map <leader>u :GundoToggle<CR>
+
+"""""""""
+"Yankring
+"""""""""
+let g:yankring_history_file = '.yankring'
