@@ -119,6 +119,10 @@ map <leader>y "+y
 "Quick format of file
 map <leader>= gg=G
 
+"Terminal commands in a buffer
+map <leader>c :ConqueTerm 
+map <leader>C :ConqueTermVSplit 
+
 "Other leader commands
 map <leader>n :NERDTreeToggle<CR>
 map <leader>t :call MyTlistToggle()<CR>

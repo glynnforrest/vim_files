@@ -58,3 +58,7 @@
 	path = vim/bundle/lustyjuggler
 	url = https://github.com/sjbach/lusty.git
 	ignore = dirty
+[submodule "vim/bundle/conque"]
+	path = vim/bundle/conque
+	url = https://github.com/rosenfeld/conque-term.git
+	ignore = dirty
