@@ -58,3 +58,7 @@
 	path = vim/bundle/conque
 	url = https://github.com/rosenfeld/conque-term.git
 	ignore = dirty
+[submodule "vim/bundle/ragtag"]
+	path = vim/bundle/ragtag
+	url = https://github.com/tpope/vim-ragtag.git
+	ignore = dirty
