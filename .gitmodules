@@ -62,3 +62,7 @@
 	path = vim/bundle/ragtag
 	url = https://github.com/tpope/vim-ragtag.git
 	ignore = dirty
+[submodule "vim/bundle/sessionman"]
+	path = vim/bundle/sessionman
+	url = https://github.com/vim-scripts/sessionman.vim.git
+	ignore = dirty

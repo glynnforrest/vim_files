@@ -123,6 +123,10 @@ map <leader>= gg=G
 map <leader>c :ConqueTerm 
 map <leader>C :ConqueTermVSplit 
 
+"Session management
+map <leader>p :SessionList<CR>
+map <leader>P :SessionSaveAs<CR>
+
 "Other leader commands
 map <leader>n :NERDTreeToggle<CR>
 map <leader>t :call MyTlistToggle()<CR>
