@@ -124,15 +124,15 @@ map <leader>c :ConqueTerm
 map <leader>C :ConqueTermVSplit 
 
 "Session management
-map <leader>p :SessionList<CR>
-map <leader>P :SessionSaveAs<CR>
+map <leader>z :SessionList<CR>
+map <leader>Z :SessionSaveAs<CR>
 
 "Other leader commands
 map <leader>n :NERDTreeToggle<CR>
 map <leader>t :call MyTlistToggle()<CR>
 map <leader>f :CommandT<CR>
 map <leader>F :CommandT 
-map <leader>z :LustyJuggler<CR>
+map <leader>l :LustyJuggler<CR>
 map <leader>g :!git 
 
 "Make new lines with return
@@ -266,3 +266,8 @@ map <leader>u :GundoToggle<CR>
 """""""""
 let g:yankring_history_file = '.yankring'
 
+""""""""""""""
+"Indent Guides
+""""""""""""""
+let g:indent_guides_start_level = 2
+let g:indent_guides_guide_size = 1
