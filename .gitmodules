@@ -30,10 +30,6 @@
 	path = vim/bundle/zencoding
 	url = https://github.com/mattn/zencoding-vim.git
 	ignore = dirty
-[submodule "vim/bundle/xmledit"]
-	path = vim/bundle/xmledit
-	url = https://github.com/sukima/xmledit.git
-	ignore = dirty
 [submodule "vim/bundle/autocomplpop"]
 	path = vim/bundle/autocomplpop
 	url = https://github.com/vim-scripts/AutoComplPop.git
