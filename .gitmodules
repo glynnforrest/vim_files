@@ -53,4 +53,8 @@
 [submodule "vim/bundle/delimitmate"]
 	path = vim/bundle/delimitmate
 	url = https://github.com/Raimondi/delimitMate.git
-    ignore = dirty
+	ignore = dirty
+[submodule "vim/bundle/lustyjuggler"]
+	path = vim/bundle/lustyjuggler
+	url = https://github.com/sjbach/lusty.git
+	ignore = dirty

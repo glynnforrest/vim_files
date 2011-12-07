@@ -107,7 +107,7 @@ map <leader>w :w<CR>
 map <leader>e :e 
 
 "Quick split
-map <leader>s :vspl<CR><C-w>w 
+map <leader>s :vspl<CR><C-w>w
 map <leader>S :vspl 
 
 "Copy and paste from the system clipboard
@@ -116,11 +116,15 @@ map <leader>p "+p
 map <leader>Y "+Y
 map <leader>y "+y
 
+"Quick format of file
+map <leader>= gg=G
+
 "Other leader commands
 map <leader>n :NERDTreeToggle<CR>
 map <leader>t :call MyTlistToggle()<CR>
 map <leader>f :CommandT<CR>
 map <leader>F :CommandT 
+map <leader>z :LustyJuggler<CR>
 map <leader>g :!git 
 
 "Make new lines with return
@@ -170,6 +174,9 @@ map <leader>d :cd %:p:h<CR>
 "Move up a directory
 map <leader>b :cd ..<CR>
 
+"Ultimate in lazy
+nmap <space> :
+
 """""""""""
 "Statusline
 """""""""""
@@ -187,6 +194,9 @@ iab xdate <c-r>=strftime("%d/%H/%Y %H:%M:%S")<CR>
 iab xname <c-r>='Glynn Forrest'<CR>
 iab xemail <c-r>='me@glynnforrest.com'<CR>
 iab xpwd <c-r>=getcwd()<CR>
+
+"Remembers cursor position in a file
+au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
 
 """"""""""""""""
 "Plugin settings
@@ -247,3 +257,4 @@ map <leader>u :GundoToggle<CR>
 "Yankring
 """""""""
 let g:yankring_history_file = '.yankring'
+
