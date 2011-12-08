@@ -117,7 +117,7 @@ map <leader>Y "+Y
 map <leader>y "+y
 
 "Quick format of file
-map <leader>= gg=G
+map <leader>= gg=G<C-o><C-o>
 
 "Terminal commands in a buffer
 map <leader>c :ConqueTerm 
