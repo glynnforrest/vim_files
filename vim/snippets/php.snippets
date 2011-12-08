@@ -216,3 +216,94 @@ snippet model
 		${6:// magic}
 	}
 	?>
+snippet index
+	<?php
+	namespace ${1:app};
+
+	use pll\core\Loader;
+	use pll\core\PLL;
+	use pll\core\Config;
+	use pll\log\Logger;
+	use pll\error\ErrorHandler;
+	use pll\error\ErrorDebugger;
+	use pll\error\ErrorRedirect;
+	use pll\core\Dispatcher;
+
+	//include PLL bootstrap
+	require('${2:/path/to/bootstrap.php}');
+	//add this application's namespace to Loader.
+	Loader::addNamespace('$1','${3:/path/to/application}');
+	//enable logging
+	PLL::enableLogs();
+
+	if ($_SERVER['SERVER_ADDR'] == '127.0.0.1') {
+		//development settings
+		//load application config file.
+		Config::load('${4:config/devconfig.php}');
+		//set ErrorHandler behaviour
+		$err = ErrorHandler::getInstance();
+		$err->attachObserver(Logger::getInstance());
+		$err->attachObserver(new ErrorDebugger(ErrorDebugger::ACTION_GENERATE_HTML_PAGE));
+	} else {
+		//production settings
+		//load application config file.
+		Config::load('${5:config/prodconfig.php}');
+		//set ErrorHandler behaviour
+		$err = ErrorHandler::getInstance();
+		$err->attachObserver(Logger::getInstance());
+		$err->attachObserver(new ErrorRedirect('/404'));
+	}
+
+	$d = new Dispatcher();
+	$d->globals(array(
+		 'transforms' => array(
+			  'controller' => function($controller) {
+				  return '$1\\controller\\' . ucfirst($controller) . 'Controller';
+			  }
+		 )
+	));
+	$d->rule('/:controller(/:function(/:args))', array(
+		 'function' => '${6:index}'
+	));
+	$d->rule('/', array(
+		 'controller' => '${7:controller}',
+		 'function' => '${8:index}'
+	));
+	$d->rule('.*', array(
+		 'controller' => '${9:controller}',
+		 'function' => '${10:index}'
+	));${11}
+	$d->go();
+	?>
+snippet config
+	<?php
+
+	return array(
+		'database' => array(
+			'${1}' => array(
+				'driver' => '${2:mysql}',
+				'host' => '${3:localhost}',
+				'port' => '${4:3306}',
+				'user' => '${5}',
+				'pass' => '${6}',
+				'database' => '${7}',
+			)
+		),
+		'log' => array(
+			'type' => array(
+				'fatal' => true,
+				'warn' => true,
+				'debug' => false,
+			),
+			'path' => '${8}',
+			'name' => '${9:logs.log}',
+		),
+		'cache' => array(
+			'${10}' => array(
+				'host' => '${11:localhost}',
+				'driver' => '${12:memcached}',
+				'port' => '${13:11211}'
+			)
+		)${14}
+	);
+	?>

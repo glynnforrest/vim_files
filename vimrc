@@ -55,6 +55,9 @@ set lbr
 set tw=80
 set wrap
 
+"Expand most folds
+set foldlevel=5
+
 "Change buffers without saving
 set hidden
 
