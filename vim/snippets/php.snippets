@@ -5,11 +5,9 @@ snippet php
 snippet phpil
 	<?php ${1} ?>
 snippet ec
-	echo '${1:string}'${2};
-	${3}
+	echo '${1:string}'${2};${3}
 snippet ech
-	echo "${1:string}"${2};
-	${3}
+	echo "${1:string}"${2};${3}
 snippet inc
 	include '${1:file}';${2}
 snippet inc1
@@ -47,6 +45,7 @@ snippet /*
 # class
 snippet class
 	<?php
+
 	namespace ${1:foo};
 
 	/**
@@ -178,13 +177,13 @@ snippet retf
 	return false;
 snippet rett
 	return true;
-#PLL specific snippets
+#Neptune specific snippets
 snippet contr
 	<?php
 	namespace ${1:app}\controller;
 
-	use pll\controller\Controller;
-	use pll\view\View;
+	use neptune\controller\Controller;
+	use neptune\view\View;
 
 	/**
 	 * ${2:Foo}Controller
@@ -201,7 +200,7 @@ snippet model
 	<?php
 	namespace ${1:app}\model;
 
-	use pll\model\DatabaseModel;
+	use neptune\model\DatabaseModel;
 
 	/**
 	 * ${2:Foo}Model
@@ -218,43 +217,52 @@ snippet model
 	?>
 snippet index
 	<?php
+
 	namespace ${1:app};
 
-	use pll\core\Loader;
-	use pll\core\PLL;
-	use pll\core\Config;
-	use pll\log\Logger;
-	use pll\error\ErrorHandler;
-	use pll\error\ErrorDebugger;
-	use pll\error\ErrorRedirect;
-	use pll\core\Dispatcher;
+	use neptune\core\Dispatcher;
+	use neptune\core\Loader;
+	use neptune\core\Config;
+	use neptune\error\ErrorHandler;
+	use neptune\core\Logger;
+	use neptune\core\Neptune;
+	use neptune\http\Request;
 
-	//include PLL bootstrap
-	require('${2:/path/to/bootstrap.php}');
+	define('ROOT', '${2}');
+
+	//include Neptune bootstrap
+	require(ROOT . '${3:lib/Neptune/bootstrap.php}');
+
 	//add this application's namespace to Loader.
-	Loader::addNamespace('$1','${3:/path/to/application}');
-	//enable logging
-	PLL::enableLogs();
+	Loader::addNamespace('$1', ROOT . '${4:application/}');
+	Loader::addAliases(array('Assets' => 'neptune\\helpers\\Assets'));
 
-	if ($_SERVER['SERVER_ADDR'] == '127.0.0.1') {
+	//enable logging
+	Logger::enable();
+
+	if (Request::ip() === '127.0.0.1') {
 		//development settings
 		//load application config file.
-		Config::load('${4:config/devconfig.php}');
+		Config::load(ROOT . '${5:config/devconfig.php}');
 		//set ErrorHandler behaviour
-		$err = ErrorHandler::getInstance();
-		$err->attachObserver(Logger::getInstance());
-		$err->attachObserver(new ErrorDebugger(ErrorDebugger::ACTION_GENERATE_HTML_PAGE));
+		ErrorHandler::addHandler('\Exception', function($e) {
+			Logger::fatal($e->getCode() . ' ' . $e->getMessage() . $e->getFile() . $e->getLine());
+			echo $e;
+		});
 	} else {
 		//production settings
 		//load application config file.
-		Config::load('${5:config/prodconfig.php}');
+		Config::load(ROOT . '${6:config/prodconfig.php}');
 		//set ErrorHandler behaviour
-		$err = ErrorHandler::getInstance();
-		$err->attachObserver(Logger::getInstance());
-		$err->attachObserver(new ErrorRedirect('/404'));
+		ErrorHandler::addHandler('\Exception', function($e) {
+			Logger::fatal($e->getCode() . ' ' . $e->getMessage() . $e->getFile() . $e->getLine());
+		});
 	}
 
-	$d = new Dispatcher();
+	//register all errors to be handled by ErrorHandler
+	ErrorHandler::init();
+
+	$d = Dispatcher::getInstance();
 	$d->globals(array(
 		 'transforms' => array(
 			  'controller' => function($controller) {
@@ -262,17 +270,14 @@ snippet index
 			  }
 		 )
 	));
-	$d->rule('/:controller(/:function(/:args))', array(
-		 'function' => '${6:index}'
+	$d->route('/:controller(/:function(/:args))', array(
+		 'function' => '${7:index}'
 	));
-	$d->rule('/', array(
-		 'controller' => '${7:controller}',
-		 'function' => '${8:index}'
+	$d->route('/', array(
+		 'controller' => '${8:controller}',
+		 'function' => '${9:index}'
 	));
-	$d->rule('.*', array(
-		 'controller' => '${9:controller}',
-		 'function' => '${10:index}'
-	));${11}
+	$d->catchAll('${10:controller}','${11:index}');
 	$d->go();
 	?>
 snippet config
@@ -304,6 +309,34 @@ snippet config
 				'driver' => '${12:memcached}',
 				'port' => '${13:11211}'
 			)
-		)${14}
+		),
+		'root_url' => '${14}',
+		'view_dir' => '${15}'
 	);
+	?>
+snippet test
+	<?php
+
+	namespace ${1:test};
+
+	use $1${2}
+
+	require_once dirname(__FILE__) . '${3}';
+
+	/**
+	 * ${4:Test}
+	 * @author Glynn Forrest me@glynnforrest.com
+	 **/
+	class $4 extends \PHPUnit_Framework_TestCase {
+
+		public function setUp() {
+		${5}	
+		}
+
+		public function tearDown() {
+		${6}	
+		}
+
+		${7}
+	}
 	?>

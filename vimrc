@@ -132,8 +132,9 @@ map <leader>Z :SessionSaveAs<CR>
 
 "Other leader commands
 map <leader>n :NERDTreeToggle<CR>
-map <leader>t :call MyTlistToggle()<CR>
+map <leader>l :call MyTlistToggle()<CR>
 map <leader>f :CommandT<CR>
+" map <leader>b :CommandTBuffer<CR>
 map <leader>F :CommandT 
 map <leader>l :LustyJuggler<CR>
 map <leader>g :!git 
@@ -146,20 +147,25 @@ map <S-CR> O<ESC>
 nnoremap j gj
 nnoremap k gk
 
+"Move lines up and down
+map <leader>j ddp
+map <leader>k ddkP
+
 "Scroll a bit faster
 nnoremap <C-e> 3<C-e>
 nnoremap <C-y> 3<C-y>
 
 "Buffer management
+map <leader>b :buffers<CR>:buffer<space>
 map <leader>B :enew<CR>
 map <left> :bp<CR>
 map <right> :bn<CR>
 "Use ctrl so it's not accidental
-map <C-down> :bd<CR>
+map <C-down> :BD<CR>
 map <C-up> :q<CR>
 
 "Add shift for !
-map <C-S-down> :bd!<CR>
+map <C-S-down> :BD!<CR>
 map <C-S-up> :q!<CR>
 
 "Tab management
@@ -183,10 +189,10 @@ map <leader>cd :cd
 map <leader>d :cd %:p:h<CR>
 
 "Move up a directory
-map <leader>b :cd ..<CR>
+map <leader>D :cd ..<CR>
 
 "Ultimate in lazy
-nmap <space> :
+map <space> :
 
 """""""""""
 "Statusline
