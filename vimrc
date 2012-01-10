@@ -133,9 +133,6 @@ map <leader>Z :SessionSaveAs<CR>
 "Other leader commands
 map <leader>n :NERDTreeToggle<CR>
 map <leader>t :call MyTlistToggle()<CR>
-map <leader>f :CommandT<CR>
-map <leader>F :CommandT 
-map <leader>l :LustyJuggler<CR>
 map <leader>g :!git 
 
 "Make new lines with return
@@ -155,8 +152,6 @@ nnoremap <C-e> 3<C-e>
 nnoremap <C-y> 3<C-y>
 
 "Buffer management
-" map <leader>b :buffers<CR>:buffer<space>
-map <leader>b :CommandTBuffer<CR>
 map <leader>B :enew<CR>
 map <left> :bp<CR>
 map <right> :bn<CR>
@@ -197,6 +192,9 @@ map <space> :
 "Clearer searching
 map n nzz
 map N Nzz
+
+"Increment everything
+set nrformats=alpha,octal,hex
 
 """""""""""
 "Statusline
@@ -255,11 +253,11 @@ let Tlist_WinWidth = 40
 let tlist_php_settings = 'php;c:class;d:constant;f:function' 
 
 """"""""""
-"Command-T
+"CtrlP
 """"""""""
-let g:CommandTMaxHeight = 15
-map <F5> :CommandTFlush<CR>
-
+let g:ctrlp_map = '<leader>F'
+map <leader>f :CtrlPCurWD<CR>
+map <leader>b :CtrlPBuffer<CR>
 
 """"""""""
 "Syntastic
@@ -284,3 +282,6 @@ let g:yankring_history_file = '.yankring'
 """"""""""""""
 let g:indent_guides_start_level = 2
 let g:indent_guides_guide_size = 1
+
+let g:acp_enableAtStartup = 0 
+let g:neocomplcache_enable_at_startup = 1 
