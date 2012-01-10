@@ -132,7 +132,7 @@ map <leader>Z :SessionSaveAs<CR>
 
 "Other leader commands
 map <leader>n :NERDTreeToggle<CR>
-map <leader>t :call MyTlistToggle()<CR>
+map <leader>t :TagbarToggle<CR>
 map <leader>g :!git 
 
 "Make new lines with return
@@ -143,9 +143,19 @@ map <S-CR> O<ESC>
 nnoremap j gj
 nnoremap k gk
 
-"Move lines up and down
-map <leader>j ddp
-map <leader>k ddkP
+"Move lines about
+nnoremap <A-j> :m+<CR>==
+nnoremap <A-k> :m-2<CR>==
+nnoremap <A-h> <<
+nnoremap <A-l> >>
+inoremap <A-j> <Esc>:m+<CR>==gi
+inoremap <A-k> <Esc>:m-2<CR>==gi
+inoremap <A-h> <Esc><<`]a
+inoremap <A-l> <Esc>>>`]a
+vnoremap <A-j> :m'>+<CR>gv=gv
+vnoremap <A-k> :m-2<CR>gv=gv
+vnoremap <A-h> <gv
+vnoremap <A-l> >gv
 
 "Scroll a bit faster
 nnoremap <C-e> 3<C-e>
@@ -225,32 +235,6 @@ au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|
 "NerdTree 
 """"""""""
 let NERDTreeShowBookmarks = 1
-
-"""""""""
-"TagList 
-"""""""""
-"Toggle TagList, but also put the cursor inside
-let g:tlist_toggle = 0
-function! MyTlistToggle() 
-	if g:tlist_toggle == 0
-		TlistOpen
-		let g:tlist_toggle = 1
-	else
-		TlistClose
-		let g:tlist_toggle = 0
-	endif
-endfunction
-let Tlist_Auto_Open=0 
-let Tlist_Compact_Format = 1 
-let Tlist_Ctags_Cmd = 'ctags' 
-let Tlist_Enable_Fold_Column = 1 
-let Tlist_Exist_OnlyWindow = 1 
-let Tlist_File_Fold_Auto_Close = 1 
-let Tlist_Sort_Type = "name"
-let Tlist_Use_Right_Window = 1 
-let Tlist_WinWidth = 40 
-"Don't show variables in php
-let tlist_php_settings = 'php;c:class;d:constant;f:function' 
 
 """"""""""
 "CtrlP
