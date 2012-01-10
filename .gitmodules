@@ -74,3 +74,6 @@
 	path = vim/bundle/mwutils
 	url = https://github.com/MarcWeber/vim-addon-mw-utils.git
 	ignore = dirty
+[submodule "vim/bundle/vim-visual-increment"]
+	path = vim/bundle/vim-visual-increment
+	url = https://github.com/triglav/vim-visual-increment.git
