@@ -10,10 +10,6 @@
 	path = vim/bundle/taglist
 	url = https://github.com/vim-scripts/taglist.vim.git
 	ignore = dirty
-[submodule "vim/bundle/commandt"]
-	path = vim/bundle/commandt
-	url = https://github.com/wincent/Command-T.git
-	ignore = dirty
 [submodule "vim/bundle/syntastic"]
 	path = vim/bundle/syntastic
 	url = https://github.com/scrooloose/syntastic.git
@@ -46,10 +42,6 @@
 	path = vim/bundle/delimitmate
 	url = https://github.com/Raimondi/delimitMate.git
 	ignore = dirty
-[submodule "vim/bundle/lustyjuggler"]
-	path = vim/bundle/lustyjuggler
-	url = https://github.com/sjbach/lusty.git
-	ignore = dirty
 [submodule "vim/bundle/conque"]
 	path = vim/bundle/conque
 	url = https://github.com/rosenfeld/conque-term.git
@@ -81,3 +73,4 @@
 [submodule "vim/bundle/ctrlp.vim"]
 	path = vim/bundle/ctrlp.vim
 	url = https://github.com/kien/ctrlp.vim.git
+	ignore = dirty
