@@ -132,9 +132,8 @@ map <leader>Z :SessionSaveAs<CR>
 
 "Other leader commands
 map <leader>n :NERDTreeToggle<CR>
-map <leader>l :call MyTlistToggle()<CR>
+map <leader>t :call MyTlistToggle()<CR>
 map <leader>f :CommandT<CR>
-" map <leader>b :CommandTBuffer<CR>
 map <leader>F :CommandT 
 map <leader>l :LustyJuggler<CR>
 map <leader>g :!git 
@@ -156,7 +155,8 @@ nnoremap <C-e> 3<C-e>
 nnoremap <C-y> 3<C-y>
 
 "Buffer management
-map <leader>b :buffers<CR>:buffer<space>
+" map <leader>b :buffers<CR>:buffer<space>
+map <leader>b :CommandTBuffer<CR>
 map <leader>B :enew<CR>
 map <left> :bp<CR>
 map <right> :bn<CR>
@@ -193,6 +193,10 @@ map <leader>D :cd ..<CR>
 
 "Ultimate in lazy
 map <space> :
+
+"Clearer searching
+map n nzz
+map N Nzz
 
 """""""""""
 "Statusline

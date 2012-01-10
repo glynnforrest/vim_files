@@ -77,3 +77,4 @@
 [submodule "vim/bundle/vim-visual-increment"]
 	path = vim/bundle/vim-visual-increment
 	url = https://github.com/triglav/vim-visual-increment.git
+	ignore = dirty
