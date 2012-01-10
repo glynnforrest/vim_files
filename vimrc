@@ -255,8 +255,12 @@ let tlist_php_settings = 'php;c:class;d:constant;f:function'
 """"""""""
 "CtrlP
 """"""""""
-let g:ctrlp_map = '<leader>F'
-map <leader>f :CtrlPCurWD<CR>
+let g:ctrlp_map = '<leader>f'
+set wildignore+=*/.git/*,*/.hg/*,*/.svn/*
+let g:ctrlp_open_new_file = 0
+let g:ctrlp_open_multi = '1t'
+let g:ctrlp_working_path_mode = 2
+map <leader>F :CtrlPCurWD<CR>
 map <leader>b :CtrlPBuffer<CR>
 
 """"""""""
