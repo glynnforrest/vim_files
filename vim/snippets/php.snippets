@@ -223,9 +223,9 @@ snippet index
 	use neptune\core\Dispatcher;
 	use neptune\core\Loader;
 	use neptune\core\Config;
-	use neptune\error\ErrorHandler;
 	use neptune\core\Logger;
 	use neptune\core\Neptune;
+	use neptune\core\Events;
 	use neptune\http\Request;
 
 	define('ROOT', '${2}');
@@ -245,7 +245,7 @@ snippet index
 		//load application config file.
 		Config::load(ROOT . '${5:config/devconfig.php}');
 		//set ErrorHandler behaviour
-		ErrorHandler::addHandler('\Exception', function($e) {
+		Events::getInstance()->addHandler('\Exception', function($e) {
 			Logger::fatal($e->getCode() . ' ' . $e->getMessage() . $e->getFile() . $e->getLine());
 			echo $e;
 		});
@@ -254,13 +254,13 @@ snippet index
 		//load application config file.
 		Config::load(ROOT . '${6:config/prodconfig.php}');
 		//set ErrorHandler behaviour
-		ErrorHandler::addHandler('\Exception', function($e) {
+		Events::getInstance()->addHandler('\Exception', function($e) {
 			Logger::fatal($e->getCode() . ' ' . $e->getMessage() . $e->getFile() . $e->getLine());
 		});
 	}
 
-	//register all errors to be handled by ErrorHandler
-	ErrorHandler::init();
+	//register all errors to be handled by Neptune
+	Neptune::handleErrors();
 
 	$d = Dispatcher::getInstance();
 	$d->globals(array(
@@ -300,18 +300,17 @@ snippet config
 				'warn' => true,
 				'debug' => false,
 			),
-			'path' => '${8}',
-			'name' => '${9:logs.log}',
+			'file' => '${8}',
 		),
 		'cache' => array(
-			'${10}' => array(
-				'host' => '${11:localhost}',
-				'driver' => '${12:memcached}',
-				'port' => '${13:11211}'
+			'${9}' => array(
+				'host' => '${10:localhost}',
+				'driver' => '${11:memcached}',
+				'port' => '${12:11211}'
 			)
 		),
-		'root_url' => '${14}',
-		'view_dir' => '${15}'
+		'root_url' => '${13}',
+		'view_dir' => '${14}'
 	);
 	?>
 snippet test
@@ -340,3 +339,7 @@ snippet test
 		${7}
 	}
 	?>
+snippet pcss
+	<?php echo Assets::css(); ?>
+snippet pjs
+	<?php echo Assets::js(); ?>
