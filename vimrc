@@ -100,7 +100,7 @@ colorscheme molokai
 let g:mapleader = ","
 
 "Hotkeys to edit and reload .vimrc
-map <leader>v :e! ~/.vimrc<CR>
+map <leader>v :e! ~/Code/vim_files/vimrc<CR>
 map <leader>V :source ~/.vimrc<CR>
 
 "Quick file write
@@ -129,7 +129,6 @@ map <leader>C :ConqueTermVSplit
 "Other leader commands
 map <leader>n :NERDTreeToggle<CR>
 map <leader>t :TagbarToggle<CR>
-map <leader>g :!git 
 
 "Make new lines with return
 map <CR> o<ESC>
@@ -168,6 +167,9 @@ map <C-up> :q<CR>
 "Add shift for !
 map <C-S-down> :BD!<CR>
 map <C-S-up> :q!<CR>
+
+"Alt down for regular buffer delete
+map <A-down> :bd!<CR>
 
 "Tab management
 nmap <leader><space> :tabf %<CR>
@@ -240,9 +242,8 @@ let NERDTreeShowBookmarks = 1
 "CtrlP
 """"""""""
 let g:ctrlp_map = '<leader>f'
-set wildignore+=*/.git/*,*/.hg/*,*/.svn/*
-let g:ctrlp_open_new_file = 0
-let g:ctrlp_open_multi = '1t'
+let g:ctrlp_open_new_file = 'r'
+let g:ctrlp_open_multi = '1'
 let g:ctrlp_working_path_mode = 2
 map <leader>F :CtrlPCurWD<CR>
 map <leader>b :CtrlPBuffer<CR>
@@ -277,3 +278,11 @@ let delimitMate_expand_cr = 1
 """"""""""""""
 let g:neocomplcache_enable_at_startup = 1 
 let g:neocomplcache_max_list = 5
+
+"""""""""
+"Fugitive
+"""""""""
+map <leader>gs :Gstatus<CR>
+map <leader>gc :Gcommit<CR>
+map <leader>gg :Git 
+map <leader>gr :Gread<CR>
