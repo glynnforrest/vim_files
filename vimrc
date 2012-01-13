@@ -126,10 +126,6 @@ map <leader>= gg=G<C-o><C-o>
 map <leader>c :ConqueTerm 
 map <leader>C :ConqueTermVSplit 
 
-"Session management
-map <leader>z :SessionList<CR>
-map <leader>Z :SessionSaveAs<CR>
-
 "Other leader commands
 map <leader>n :NERDTreeToggle<CR>
 map <leader>t :TagbarToggle<CR>
@@ -144,10 +140,10 @@ nnoremap j gj
 nnoremap k gk
 
 "Move lines about
-nnoremap <A-j> :m+<CR>==
-nnoremap <A-k> :m-2<CR>==
-nnoremap <A-h> <<
+nnoremap <A-k> ddkP
+nnoremap <A-j> ddp
 nnoremap <A-l> >>
+nnoremap <A-h> <<
 inoremap <A-j> <Esc>:m+<CR>==gi
 inoremap <A-k> <Esc>:m-2<CR>==gi
 inoremap <A-h> <Esc><<`]a
@@ -229,9 +225,6 @@ au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|
 
 "Ever useful easy insert mode escape
 inoremap kj <ESC>
-"training
-inoremap <ESC> <NOP>
-
 
 
 """"""""""""""""
@@ -272,11 +265,13 @@ map <leader>u :GundoToggle<CR>
 """""""""
 let g:yankring_history_file = '.yankring'
 
-""""""""""""""
-"Indent Guides
-""""""""""""""
-let g:indent_guides_start_level = 2
-let g:indent_guides_guide_size = 1
+""""""""""""
+"DelimitMate
+""""""""""""
+let delimitMate_matchpairs = "(:),[:],{:}"
+let delimitMate_expand_cr = 1
+
 
 let g:acp_enableAtStartup = 0 
 let g:neocomplcache_enable_at_startup = 1 
+" let g:neocomplcache_max_list = 5
