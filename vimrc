@@ -123,8 +123,8 @@ map <leader>y "+y
 map <leader>= gg=G<C-o><C-o>
 
 "Terminal commands in a buffer
-map <leader>c :ConqueTerm 
-map <leader>C :ConqueTermVSplit 
+map <leader>x :ConqueTerm 
+map <leader>X :ConqueTermVSplit 
 
 "Other leader commands
 map <leader>n :NERDTreeToggle<CR>
@@ -173,7 +173,6 @@ map <A-down> :bd!<CR>
 
 "Tab management
 nmap <leader><space> :tabf %<CR>
-nmap <leader>x :tabclose<CR>
 nmap <C-left> :tabprev<CR>
 nmap <C-right> :tabnext<CR>
 
