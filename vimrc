@@ -285,3 +285,9 @@ map <leader>gs :Gstatus<CR>
 map <leader>gc :Gcommit<CR>
 map <leader>gg :Git 
 map <leader>gr :Gread<CR>
+
+"""""""
+"ColorV
+"""""""
+"Nifty shortcut to insert a css colour.
+imap #~ #FF0000;<ESC>h,ce
