@@ -227,6 +227,13 @@ iab xpwd <c-r>=getcwd()<CR>
 "Remembers cursor position in a file
 au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
 
+"Ever useful easy insert mode escape
+inoremap kj <ESC>
+"training
+inoremap <ESC> <NOP>
+
+
+
 """"""""""""""""
 "Plugin settings
 """"""""""""""""
