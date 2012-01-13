@@ -272,6 +272,8 @@ let delimitMate_matchpairs = "(:),[:],{:}"
 let delimitMate_expand_cr = 1
 
 
-let g:acp_enableAtStartup = 0 
+""""""""""""""
+"Neocomplcache
+""""""""""""""
 let g:neocomplcache_enable_at_startup = 1 
-" let g:neocomplcache_max_list = 5
+let g:neocomplcache_max_list = 5
