@@ -243,7 +243,7 @@ let NERDTreeShowBookmarks = 1
 """"""""""
 let g:ctrlp_map = '<leader>f'
 let g:ctrlp_open_new_file = 'r'
-let g:ctrlp_open_multi = '1'
+let g:ctrlp_open_multi = 'vr'
 let g:ctrlp_working_path_mode = 2
 map <leader>F :CtrlPCurWD<CR>
 map <leader>b :CtrlPBuffer<CR>
