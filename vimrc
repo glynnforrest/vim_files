@@ -224,8 +224,8 @@ iab xpwd <c-r>=getcwd()<CR>
 "Remembers cursor position in a file
 au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
 
-"Ever useful easy insert mode escape
-inoremap kj <ESC>
+"Ever useful easy insert mode escape, plus formatting
+inoremap kj <ESC>==
 
 
 """""""""""""""""""""""
@@ -244,6 +244,8 @@ au BufRead,BufNewFile *.js set filetype=javascript.jquery
 "NerdTree 
 """"""""""
 let NERDTreeShowBookmarks = 1
+let NERDTreeDirArrows = 1
+let NERDTreeMinimalUI = 1
 
 """"""""""
 "CtrlP
