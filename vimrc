@@ -52,7 +52,7 @@ set tabstop=4
 set noexpandtab
 set smarttab
 set lbr
-set tw=80
+" set tw=80
 set wrap
 
 "Expand most folds
@@ -139,8 +139,8 @@ nnoremap j gj
 nnoremap k gk
 
 "Move lines about
-nnoremap <A-k> ddkP
-nnoremap <A-j> ddp
+nnoremap <A-k> ddkP==
+nnoremap <A-j> ddp==
 nnoremap <A-l> >>
 nnoremap <A-h> <<
 inoremap <A-j> <Esc>:m+<CR>==gi
@@ -228,6 +228,14 @@ au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|
 inoremap kj <ESC>
 
 
+"""""""""""""""""""""""
+"File specific settings
+"""""""""""""""""""""""
+"Add support for html snippets in php and jquery snippets
+au BufRead,BufNewFile *.php set filetype=php.html
+au BufRead,BufNewFile *.js set filetype=javascript.jquery
+
+"Jquery
 """"""""""""""""
 "Plugin settings
 """"""""""""""""
@@ -244,6 +252,7 @@ let g:ctrlp_map = '<leader>f'
 let g:ctrlp_open_new_file = 'r'
 let g:ctrlp_open_multi = 'vr'
 let g:ctrlp_working_path_mode = 2
+let g:ctrlp_user_command = "find %s -type f | egrep -v '/\.(git|hg|svn)/' | egrep -v '\.(swp|swo|log|gitkep|keepme|so|o)$'"
 map <leader>F :CtrlPCurWD<CR>
 map <leader>b :CtrlPBuffer<CR>
 
@@ -270,13 +279,6 @@ let g:yankring_history_file = '.yankring'
 """"""""""""
 let delimitMate_matchpairs = "(:),[:],{:}"
 let delimitMate_expand_cr = 1
-
-
-""""""""""""""
-"Neocomplcache
-""""""""""""""
-let g:neocomplcache_enable_at_startup = 1 
-let g:neocomplcache_max_list = 5
 
 """""""""
 "Fugitive
