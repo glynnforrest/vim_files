@@ -123,16 +123,16 @@ map <leader>y "+y
 map <leader>= gg=G<C-o><C-o>
 
 "Terminal commands in a buffer
-map <leader>x :ConqueTerm 
-map <leader>X :ConqueTermVSplit 
+map <leader>x :ConqueTermVSplit bash<CR> 
+map <leader>X :ConqueTerm bash<CR>
 
 "Other leader commands
 map <leader>n :NERDTreeToggle<CR>
 map <leader>t :TagbarToggle<CR>
 
 "Make new lines with return
-map <CR> o<ESC>
-map <S-CR> O<ESC>
+map <S-CR> o<ESC>
+map <C-S-CR> O<ESC>
 
 "Navigate up and down a long line
 nnoremap j gj
@@ -163,6 +163,9 @@ map <right> :bn<CR>
 "Use ctrl so it's not accidental
 map <C-down> :BD<CR>
 map <C-up> :q<CR>
+"Also for insert mode (useful for ConqueTerm)
+imap <C-down> <ESC>:BD<CR>
+imap <C-up> <ESC>:q<CR>
 
 "Add shift for !
 map <C-S-down> :BD!<CR>
@@ -289,9 +292,16 @@ map <leader>gs :Gstatus<CR>
 map <leader>gc :Gcommit<CR>
 map <leader>gg :Git 
 map <leader>gr :Gread<CR>
+map <leader>gd :Gdiff<CR>
 
 """""""
 "ColorV
 """""""
 "Nifty shortcut to insert a css colour.
 imap #~ #FF0000;<ESC>h,ce
+
+""""""""""
+"Splitjoin
+""""""""""
+map <leader>j :SplitjoinJoin<CR>
+map <leader>k :SplitjoinSplit<CR>
