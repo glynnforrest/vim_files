@@ -133,6 +133,9 @@ map <leader>X :ConqueTerm bash<CR>
 map <leader>n :NERDTreeToggle<CR>
 map <leader>t :TagbarToggle<CR>
 
+"Move a file and rename the Buffer
+map <leader>m :Rename 
+
 "Make new lines with return
 map <S-CR> o<ESC>
 map <C-S-CR> O<ESC>
