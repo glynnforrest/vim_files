@@ -89,7 +89,8 @@ set guioptions=m
 set winaltkeys=no
 
 "Font
-set guifont=Consolas\ 10
+" set guifont=Consolas\ 10
+set gfn=Inconsolata\ Medium\ 10
 
 "Colours
 highlight Normal ctermbg=Black ctermfg=White
