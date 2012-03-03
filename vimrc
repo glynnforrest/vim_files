@@ -31,6 +31,7 @@ set noswapfile
 "Searching wraps around end of file and travels
 set wrapscan
 set incsearch
+set nohlsearch
 
 "Search smartly
 set smartcase
@@ -52,8 +53,9 @@ set tabstop=4
 set noexpandtab
 set smarttab
 set lbr
-" set tw=80
-set wrap
+set tw=80
+" set wrap
+" set dictionary=/usr/share/dict/cracklib-small
 
 "Expand most folds
 set foldlevel=5
@@ -105,6 +107,7 @@ map <leader>V :source ~/.vimrc<CR>
 
 "Quick file write
 map <leader>w :w<CR>
+vmap <leader>w <ESC>:w<CR>
 
 "Quick file open
 map <leader>e :e 
@@ -260,6 +263,7 @@ let g:ctrlp_working_path_mode = 2
 let g:ctrlp_user_command = "find %s -type f | egrep -v '/\.(git|hg|svn)/' | egrep -v '\.(swp|swo|log|gitkep|keepme|so|o)$'"
 map <leader>F :CtrlPCurWD<CR>
 map <leader>b :CtrlPBuffer<CR>
+map <leader>r :CtrlPMRU<CR>
 
 """"""""""
 "Syntastic
