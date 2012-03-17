@@ -1,345 +1,441 @@
 snippet php
-	<?php
-	${1}
-	?>
+<?php
+${1}
+?>
+endsnippet
+
 snippet phpil
-	<?php ${1} ?>
+<?php ${1} ?>
+endsnippet
+
 snippet ec
-	echo '${1:string}'${2};${3}
+echo '${1:string}'${2};${3}
+endsnippet
+
 snippet ech
-	echo "${1:string}"${2};${3}
+echo "${1:string}"${2};${3}
+endsnippet
+
 snippet inc
-	include '${1:file}';${2}
+include '${1:file}';${2}
+endsnippet
+
 snippet inc1
-	include_once '${1:file}';${2}
+include_once '${1:file}';${2}
+endsnippet
+
 snippet req
-	require '${1:file}';${2}
+require '${1:file}';${2}
+endsnippet
+
 snippet req1
-	require_once '${1:file}';${2}
-# $GLOBALS['...']
-snippet globals
-	$GLOBALS['${1:variable}']${2: = }${3:something}${4:;}${5}
+require_once '${1:file}';${2}
+endsnippet
+
 snippet G
-	$GLOBALS['${1:variable}']
-snippet $_ COOKIE['...']
-	$_COOKIE['${1:variable}']${2}
-snippet $_ ENV['...']
-	$_ENV['${1:variable}']${2}
-snippet $_ FILES['...']
-	$_FILES['${1:variable}']${2}
-snippet $_ GET['...']
-	$_GET['${1:variable}']${2}
-snippet $_ POST['...']
-	$_POST['${1:variable}']${2}
-snippet $_ REQUEST['...']
-	$_REQUEST['${1:variable}']${2}
-snippet $_ SERVER['...']
-	$_SERVER['${1:variable}']${2}
-snippet $_ SESSION['...']
-	$_SESSION['${1:variable}']${2}
-# Start Docblock
+$GLOBALS['${1:variable}']
+endsnippet
+
+snippet C
+$_COOKIE['${1:variable}']${2}
+endsnippet
+
+snippet E
+$_ENV['${1:variable}']${2}
+endsnippet
+
+snippet F
+$_FILES['${1:variable}']${2}
+endsnippet
+
+snippet G
+$_GET['${1:variable}']${2}
+endsnippet
+
+snippet P
+$_POST['${1:variable}']${2}
+endsnippet
+
+snippet R
+$_REQUEST['${1:variable}']${2}
+endsnippet
+
+snippet SER
+$_SERVER['${1:variable}']${2}
+endsnippet
+
+snippet SES
+$_SESSION['${1:variable}']${2}
+endsnippet
+
 snippet /*
-	/**
-	 * ${1}
-	 */
-# class
+/**
+ * ${1}
+ */
+endsnippet
+
 snippet class
-	<?php
+<?php
 
-	namespace ${1:foo};
+namespace ${1:foo};
 
-	/**
-	 * ${2:Foo}
-	 * @author Glynn Forrest me@glynnforrest.com
-	 **/
-	class $2 ${3}{
+/**
+ * ${2:Foo}
+ * @author Glynn Forrest me@glynnforrest.com
+ **/
+class $2 ${3}{
 
-		${4}
-
-		${5:public} function ${6:__construct}(${7}) {
-			${8:// magic}
-		}
-	}
-	?>
-# interface
-snippet interface
-	<?php
-	namespace ${1:foo};
-
-	/**
-	 * ${2:Foo}
-	 * @author Glynn Forrest me@glynnforrest.com
-	 **/
-	interface $2 ${3}{
-
-		${4}
-
-		${5:public} function ${6:__construct}(${7}) {
-			${8:// magic}
-		}
-	}
-	?>
-# define(...)
-snippet def
-	define('${1}'${2});${3}
-# defined(...)
-snippet def?
-	${1}defined('${2}')${3}
-snippet wh
-	while (${1:/* condition */}) {
-		${2:// code...}
-	}
-# do ... while
-snippet do
-	do {
-		${2:// code... }
-	} while (${1:/* condition */});
-snippet if
-	if (${1:/* condition */}) {
-		${2:// code...}
-	}
-snippet ife
-	if (${1:/* condition */}) {
-		${2:// code...}
-	} else {
-		${3:// code...}
-	}
 	${4}
+
+	${5:public} function ${6:__construct}(${7}) {
+		${8:// magic}
+	}
+}
+?>
+endsnippet
+
+snippet interface
+<?php
+namespace ${1:foo};
+
+/**
+ * ${2:Foo}
+ * @author Glynn Forrest me@glynnforrest.com
+ **/
+interface $2 ${3}{
+
+	${4}
+
+	${5:public} function ${6:__construct}(${7}) {
+		${8:// magic}
+	}
+}
+?>
+endsnippet
+
+snippet def
+define('${1}'${2});${3}
+endsnippet
+
+snippet def?
+${1}defined('${2}')${3}
+endsnippet
+
+snippet wh
+while (${1:/* condition */}) {
+	${2:// code...}
+}
+endsnippet
+
+snippet do
+do {
+	${2:// code... }
+} while (${1:/* condition */});
+endsnippet
+
+snippet if
+if (${1:/* condition */}) {
+	${2:// code...}
+}
+endsnippet
+
+snippet ife
+if (${1:/* condition */}) {
+	${2:// code...}
+} else {
+	${3:// code...}
+}
+${4}
+endsnippet
+
 snippet else
-	else {
-		${1:// code...}
-	}
+else {
+	${1:// code...}
+}
+endsnippet
+
 snippet elseif
-	elseif (${1:/* condition */}) {
-		${2:// code...}
-	}
+elseif (${1:/* condition */}) {
+	${2:// code...}
+}
+endsnippet
+
 # Tertiary conditional
 snippet t
-	$${1:retVal} = (${2:condition}) ? ${3:a} : ${4:b};${5}
+$${1:retVal} = (${2:condition}) ? ${3:a} : ${4:b};${5}
+endsnippet
+
 snippet switch
-	switch ($${1:variable}) {
-		case '${2:value}':
-			${3:// code...}
-			break;
-		${5}
-		default:
-			${4:// code...}
-			break;
-	}
-snippet case
-	case '${1:value}':
-		${2:// code...}
-		break;${3}
-snippet for
-	for ($${2:i} = 0; $$2 < ${1:count}; $$2${3:++}) {
-		${4: // code...}
-	}
-snippet foreach
-	foreach ($${1:variable} as $${2:value}) {
+switch ($${1:variable}) {
+	case '${2:value}':
 		${3:// code...}
-	}
+		break;
+	${5}
+	default:
+		${4:// code...}
+		break;
+}
+endsnippet
+
+snippet case
+case '${1:value}':
+	${2:// code...}
+	break;${3}
+endsnippet
+
+snippet for
+for ($${2:i} = 0; $$2 < ${1:count}; $$2${3:++}) {
+	${4: // code...}
+}
+endsnippet
+
+snippet foreach
+foreach ($${1:variable} as $${2:value}) {
+	${3:// code...}
+}
+endsnippet
+
 snippet foreachk
-	foreach ($${1:variable} as $${2:key} => $${3:value}) {
-		${4:// code...}
-	}
+foreach ($${1:variable} as $${2:key} => $${3:value}) {
+	${4:// code...}
+}
+endsnippet
+
 snippet fun
-	${1:public} function ${2:name}(${3}) {
-		${4:// code...}
-	}
-# $... = array (...)
-snippet array
-	$${1:arrayName} = array('${2}' => ${3});${4}
+${1:public} function ${2:name}(${3}) {
+	${4:// code...}
+}
+endsnippet
+
+snippet arr
+$${1:arrayName} = array('${2}' => ${3});${4}
+endsnippet
+
 snippet try
-	try {
-		${2}
-	} catch (${1:\Exception} $e) {
-		${3}
-	}
+try {
+	${2}
+} catch (${1:\Exception} $e) {
+	${3}
+}
+endsnippet
+
 # lambda with closure
 snippet lambda
-	${1:static }function (${2:args}) use (${3:&$x, $y /*put vars in scope (closure) */}) {
-		${4}
-	};
+${1:static }function (${2:args}) use (${3:&$x, $y /*put vars in scope (closure) */}) {
+	${4}
+};
+endsnippet
+
 # pre_print();
 snippet pp
-	echo '<pre>'; print_r(${1}); echo '</pre>';
+echo '<pre>'; print_r(${1}); echo '</pre>';
+endsnippet
+
 # pre_dump();
 snippet pd
-	echo '<pre>'; var_dump(${1}); echo '</pre>';
+echo '<pre>'; var_dump(${1}); echo '</pre>';
+endsnippet
+
 # pre_dump(); die();
 snippet pdd
-	echo '<pre>'; var_dump(${1}); echo '</pre>'; die(${2:});
+echo '<pre>'; var_dump(${1}); echo '</pre>'; die(${2:});
+endsnippet
+
 snippet vd
-	var_dump(${1});
+var_dump(${1});
+endsnippet
+
 snippet vdd
-	var_dump(${1}); die(${2:});
+var_dump(${1}); die(${2:});
+endsnippet
+
 snippet retf
-	return false;
+return false;
+endsnippet
+
 snippet rett
-	return true;
+return true;
+endsnippet
+
 #Neptune specific snippets
 snippet contr
-	<?php
-	namespace ${1:app}\controller;
+<?php
+namespace ${1:app}\controller;
 
-	use neptune\controller\Controller;
-	use neptune\view\View;
+use neptune\controller\Controller;
+use neptune\view\View;
 
-	/**
-	 * ${2:Foo}Controller
-	 * @author Glynn Forrest me@glynnforrest.com
-	 **/
-	class $2Controller extends Controller {
+/**
+ * ${2:Foo}Controller
+ * @author Glynn Forrest me@glynnforrest.com
+ **/
+class $2Controller extends Controller {
 
-		${3:public} function ${4:index}(${5}) {
-			${6:// magic}
-		}
-	}
-	?>
-snippet model
-	<?php
-	namespace ${1:app}\model;
 
-	use neptune\model\DatabaseModel;
-
-	/**
-	 * ${2:Foo}Model
-	 * @author Glynn Forrest me@glynnforrest.com
-	 **/
-	class $2Model extends DatabaseModel {
-
-		protected $table = '${3:table}';
-		protected $fields = array(${4});
-		protected $rules = array(${5});
-		
+	${3:public} function ${4:index}(${5}) {
 		${6:// magic}
 	}
-	?>
+}
+?>
+endsnippet
+
+snippet model
+<?php
+namespace ${1:app}\model;
+
+use neptune\model\DatabaseModel;
+
+/**
+ * ${2:Foo}Model
+ * @author Glynn Forrest me@glynnforrest.com
+ **/
+class $2Model extends DatabaseModel {
+
+
+	protected $table = '${3:table}';
+	protected $fields = array(${4});
+	protected $rules = array(${5});
+	
+	${6:// magic}
+}
+?>
+endsnippet
+
 snippet index
-	<?php
+<?php
 
-	namespace ${1:app};
+namespace ${1:app};
 
-	use neptune\core\Dispatcher;
-	use neptune\core\Loader;
-	use neptune\core\Config;
-	use neptune\core\Logger;
-	use neptune\core\Neptune;
-	use neptune\core\Events;
-	use neptune\http\Request;
+use neptune\core\Dispatcher;
+use neptune\core\Loader;
+use neptune\core\Config;
+use neptune\core\Logger;
+use neptune\core\Neptune;
+use neptune\core\Events;
+use neptune\http\Request;
 
-	define('ROOT', '${2}');
+define('ROOT', '${2}');
 
-	//include Neptune bootstrap
-	require(ROOT . '${3:lib/Neptune/bootstrap.php}');
+//include Neptune bootstrap
+require(ROOT . '${3:lib/Neptune/bootstrap.php}');
 
-	//add this application's namespace to Loader.
-	Loader::addNamespace('$1', ROOT . '${4:application/}');
-	Loader::addAliases(array('Assets' => 'neptune\\helpers\\Assets'));
+//add this application's namespace to Loader.
+Loader::addNamespace('$1', ROOT . '${4:application/}');
+Loader::addAliases(array('Assets' => 'neptune\\helpers\\Assets'));
 
-	//enable logging
-	Logger::enable();
+//enable logging
+Logger::enable();
 
-	if (Request::ip() === '127.0.0.1') {
-		//development settings
-		//load application config file.
-		Config::load(ROOT . '${5:config/devconfig.php}');
-		//set ErrorHandler behaviour
-		Events::getInstance()->addHandler('\Exception', function($e) {
-			Logger::fatal($e->getCode() . ' ' . $e->getMessage() . $e->getFile() . $e->getLine());
-			echo $e;
-		});
-	} else {
-		//production settings
-		//load application config file.
-		Config::load(ROOT . '${6:config/prodconfig.php}');
-		//set ErrorHandler behaviour
-		Events::getInstance()->addHandler('\Exception', function($e) {
-			Logger::fatal($e->getCode() . ' ' . $e->getMessage() . $e->getFile() . $e->getLine());
-		});
-	}
+if (Request::ip() === '127.0.0.1') {
+	//development settings
+	//load application config file.
+	Config::load(ROOT . '${5:config/devconfig.php}');
+	//set ErrorHandler behaviour
+	Events::getInstance()->addHandler('\Exception', function($e) {
+		Logger::fatal($e->getCode() . ' ' . $e->getMessage() . $e->getFile() . $e->getLine());
+		echo $e;
+	});
+} else {
+	//production settings
+	//load application config file.
+	Config::load(ROOT . '${6:config/prodconfig.php}');
+	//set ErrorHandler behaviour
+	Events::getInstance()->addHandler('\Exception', function($e) {
+		Logger::fatal($e->getCode() . ' ' . $e->getMessage() . $e->getFile() . $e->getLine());
+	});
+}
 
-	//register all errors to be handled by Neptune
-	Neptune::handleErrors();
+//register all errors to be handled by Neptune
+Neptune::handleErrors();
 
-	$d = Dispatcher::getInstance();
-	$d->globals(array(
-		 'transforms' => array(
-			  'controller' => function($controller) {
-				  return '$1\\controller\\' . ucfirst($controller) . 'Controller';
-			  }
-		 )
-	));
-	$d->route('/:controller(/:function(/:args))', array(
-		 'function' => '${7:index}'
-	));
-	$d->route('/', array(
-		 'controller' => '${8:controller}',
-		 'function' => '${9:index}'
-	));
-	$d->catchAll('${10:controller}','${11:index}');
-	$d->go();
-	?>
+$d = Dispatcher::getInstance();
+$d->globals(array(
+	 'transforms' => array(
+		  'controller' => function($controller) {
+			  return '$1\\controller\\' . ucfirst($controller) . 'Controller';
+		  }
+	 )
+));
+$d->route('/:controller(/:function(/:args))', array(
+	 'function' => '${7:index}'
+));
+$d->route('/', array(
+	 'controller' => '${8:controller}',
+	 'function' => '${9:index}'
+));
+$d->catchAll('${10:controller}','${11:index}');
+$d->go();
+?>
+endsnippet
+
 snippet config
-	<?php
+<?php
 
-	return array(
-		'database' => array(
-			'${1}' => array(
-				'driver' => '${2:mysql}',
-				'host' => '${3:localhost}',
-				'port' => '${4:3306}',
-				'user' => '${5}',
-				'pass' => '${6}',
-				'database' => '${7}',
-			)
+return array(
+	'database' => array(
+		'${1}' => array(
+			'driver' => '${2:mysql}',
+			'host' => '${3:localhost}',
+			'port' => '${4:3306}',
+			'user' => '${5}',
+			'pass' => '${6}',
+			'database' => '${7}',
+		)
+	),
+	'log' => array(
+		'type' => array(
+			'fatal' => true,
+			'warn' => true,
+			'debug' => false,
 		),
-		'log' => array(
-			'type' => array(
-				'fatal' => true,
-				'warn' => true,
-				'debug' => false,
-			),
-			'file' => '${8}',
-		),
-		'cache' => array(
-			'${9}' => array(
-				'host' => '${10:localhost}',
-				'driver' => '${11:memcached}',
-				'port' => '${12:11211}'
-			)
-		),
-		'root_url' => '${13}',
-		'view_dir' => '${14}'
-	);
-	?>
+		'file' => '${8}',
+	),
+	'cache' => array(
+		'${9}' => array(
+			'host' => '${10:localhost}',
+			'driver' => '${11:memcached}',
+			'port' => '${12:11211}'
+		)
+	),
+	'root_url' => '${13}',
+	'view_dir' => '${14}'
+);
+?>
+endsnippet
+
 snippet test
-	<?php
+<?php
 
-	namespace ${1:test};
+namespace ${1:test};
 
-	use $1${2}
+use $1${2}
 
-	require_once dirname(__FILE__) . '${3}';
+require_once dirname(__FILE__) . '${3}';
 
-	/**
-	 * ${4:Test}
-	 * @author Glynn Forrest me@glynnforrest.com
-	 **/
-	class $4 extends \PHPUnit_Framework_TestCase {
+/**
+ * ${4:Test}
+ * @author Glynn Forrest me@glynnforrest.com
+ **/
+class $4 extends \PHPUnit_Framework_TestCase {
 
-		public function setUp() {
-		${5}	
-		}
 
-		public function tearDown() {
-		${6}	
-		}
-
-		${7}
+	public function setUp() {
+	${5}	
 	}
-	?>
+
+	public function tearDown() {
+	${6}	
+	}
+
+	${7}
+}
+?>
+endsnippet
+
 snippet pcss
-	<?php echo Assets::css(); ?>
+<?php echo Assets::css(); ?>
+endsnippet
+
 snippet pjs
-	<?php echo Assets::js(); ?>
+<?php echo Assets::js(); ?>
+endsnippet
