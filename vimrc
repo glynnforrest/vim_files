@@ -6,8 +6,8 @@
 "
 "Load plugins before anything else
 filetype off
-call pathogen#helptags()
 call pathogen#runtime_append_all_bundles()
+call pathogen#helptags()
 
 """""""""""""""""
 "General settings
@@ -245,10 +245,14 @@ inoremap kj <ESC>==
 au BufRead,BufNewFile *.php set filetype=php.html
 au BufRead,BufNewFile *.js set filetype=javascript.jquery
 
-"Jquery
-""""""""""""""""
-"Plugin settings
-""""""""""""""""
+""""""""""
+"UltiSnips
+""""""""""
+
+let g:UltiSnipsSnippetDirectories=["snippets"]
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 """"""""""
 "NerdTree 
