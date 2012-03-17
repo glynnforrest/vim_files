@@ -115,7 +115,7 @@ map <leader>e :e
 
 "Quick split
 map <leader>s :vspl<CR><C-w>w
-map <leader>S :vspl 
+map <leader>S :spl<CR><C-w>w
 
 "Copy and paste from the system clipboard
 map <leader>P "+P
@@ -127,8 +127,8 @@ map <leader>y "+y
 map <leader>= gg=G<C-o><C-o>
 
 "Terminal commands in a buffer
-map <leader>x :ConqueTermVSplit bash<CR> 
-map <leader>X :ConqueTerm bash<CR>
+map <leader>x :ConqueTerm bash<CR>
+map <leader>X :ConqueTermVSplit bash<CR> 
 
 "Other leader commands
 map <leader>n :NERDTreeToggle<CR>
