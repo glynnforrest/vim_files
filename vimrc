@@ -213,6 +213,19 @@ map N Nzz
 "Increment everything
 set nrformats=alpha,octal,hex
 
+"Toggle line relative line numbers, use them by default
+set relativenumber
+
+function! g:ToggleRelativeNumbers() 
+if(&rnu == 1) 
+set nu 
+else 
+set rnu 
+endif 
+endfunc 
+
+map <F2> :call g:ToggleRelativeNumbers()<CR>
+
 """""""""""
 "Statusline
 """""""""""
