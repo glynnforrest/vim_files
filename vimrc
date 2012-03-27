@@ -94,7 +94,7 @@ set gfn=Inconsolata\ Medium\ 10
 
 "Colours
 highlight Normal ctermbg=Black ctermfg=White
-colorscheme molokai
+colorscheme inkpot
 
 """""""""""""""""""""
 "Normal mode mappings
@@ -203,19 +203,24 @@ map <leader>d :cd %:p:h<CR>
 "Move up a directory
 map <leader>D :cd ..<CR>
 
+"Replace word under cursor
+" :nnoremap <leader>\ :%s/\<<C-r><C-w>\>/
+" :nnoremap <leader>| :%s/<C-r><C-w>/
+
+
 "Ultimate in lazy
 map <space> :
 
 "Clearer searching
 map n nzz
 map N Nzz
+map * *zz
+map # #zz
 
 "Increment everything
 set nrformats=alpha,octal,hex
 
-"Toggle line relative line numbers, use them by default
-set relativenumber
-
+"Toggle line relative line numbers
 function! g:ToggleRelativeNumbers() 
 if(&rnu == 1) 
 set nu 
